@@ -7,7 +7,13 @@ namespace Kafka.Infrastructure.Config
 {
     public class KafkaAdminConfig
     {
-        public static AdminClientConfig Config()
+        public static AdminClientConfig AdminConfig()
+            => new()
+            {
+                BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION")
+            };
+
+        public static ProducerConfig ProducerConfig()
             => new()
             {
                 BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION")

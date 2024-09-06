@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  kafka.webapi.producer:
+    image: ${DOCKER_REGISTRY-}kafkawebapiproducer
+    build:
+      context: .
+      dockerfile: Kafka.Webapi.Producer/Dockerfile
+
+  kafka.webapi.consumer:
+    image: ${DOCKER_REGISTRY-}kafkawebapiconsumer
+    build:
+      context: .
+      dockerfile: Kafka.Webapi.Consumer/Dockerfile
+

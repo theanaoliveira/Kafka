@@ -3,21 +3,14 @@ version: '3.7'
 services:
   kafka.webapi.producer:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - KAFKA_CONNECTION=kafka:29092
+      ASPNETCORE_ENVIRONMENT: Development
+      KAFKA_CONNECTION: "kafka:29092"
+      TOPIC: str-topic 
     ports:
-      - "80"
+      - "9000:80"
     networks:
       - broker-kafka
-
-  kafka.webapi.consumer:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
-    networks:
-      - broker-kafka
-
+      
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     networks:

@@ -15,11 +15,12 @@ namespace Kafka.Webapi.Producer.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(201)]
         public async Task<IActionResult> SendMessage([FromBody] string message)
         {
             await publishMessages.SendMessage(message);
 
-            return NoContent();
+            return Created(new Uri($"{Request.Path}", UriKind.Relative), "Mensagem publicada");
         }
     }
 }

@@ -3,11 +3,11 @@ using Kafka.Infrastructure.Interfaces;
 
 namespace Kafka.Infrastructure.Producers
 {
-    public class KafkaTemplate<TKey, TValue> : IKafkaTemplate<TKey, TValue>
+    public class ProducerTemplate<TKey, TValue> : IProducerTemplate<TKey, TValue>
     {
         private readonly IProducer<TKey, TValue> _producer;
 
-        public KafkaTemplate(IProducer<TKey, TValue> producer)
+        public ProducerTemplate(IProducer<TKey, TValue> producer)
         {
             _producer = producer;
         }

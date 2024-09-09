@@ -16,7 +16,15 @@ namespace Kafka.Infrastructure.Config
         public static ProducerConfig ProducerConfig()
             => new()
             {
-                BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION")
+                BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION"),
+            };
+
+        public static ConsumerConfig ConsumerConfig()
+            => new()
+            {
+                BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION"),
+                GroupId = "users",
+                AutoOffsetReset = AutoOffsetReset.Earliest,
             };
 
         public static IAdminClient GetAdminClient(AdminClientConfig config)

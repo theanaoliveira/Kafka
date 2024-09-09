@@ -23,7 +23,7 @@ namespace Kafka.Infrastructure.Config
             => new()
             {
                 BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_CONNECTION"),
-                GroupId = "users",
+                GroupId = "group-1",
                 AutoOffsetReset = AutoOffsetReset.Earliest,
             };
 

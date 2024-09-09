@@ -10,6 +10,13 @@ services:
       - "9000:80"
     networks:
       - broker-kafka
+   
+  kafka.consumer:
+    environment:
+      KAFKA_CONNECTION: "kafka:29092"
+      TOPIC: str-topic 
+    networks:
+      - broker-kafka
       
   zookeeper:
     image: confluentinc/cp-zookeeper:latest

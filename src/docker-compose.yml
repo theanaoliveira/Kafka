@@ -6,10 +6,10 @@ services:
     build:
       context: .
       dockerfile: Kafka.Webapi.Producer/Dockerfile
-
-  kafka.webapi.consumer:
-    image: ${DOCKER_REGISTRY-}kafkawebapiconsumer
+      
+  kafka.consumer:
+    image: ${DOCKER_REGISTRY-}kafkaconsumer
     build:
       context: .
-      dockerfile: Kafka.Webapi.Consumer/Dockerfile
+      dockerfile: Kafka.Consumer/Dockerfile
 
